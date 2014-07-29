@@ -124,7 +124,7 @@ monitor.setCursorPos(30,17)
 monitor.write("Water Vapor 1%")
 monitor.setCursorPos(30,18)
 monitor.write("Traces of Argon and CO2")
-image = paintutils.loadImage("/worlds/earth.nfp")
+image = paintutils.loadImage("/worlds/twilight.nfp")
 paintutils.drawImage(image,2,5)
 term.redirect(term.native())
 end
@@ -179,7 +179,7 @@ rednet.open("back")
 	
 	
     if msgArr[2] == "Earth" then
-	  Info_Tierra()
+	  Info_Earth()
 	end
 	if msgArr[2] == "Mars" then
 	  Info_Mars()
