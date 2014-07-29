@@ -41,7 +41,8 @@ print()
 print("Updating planetary and dimensional data")
 
 if getAndSave("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/earth.nfp","/worlds/earth.nfp") and
-       getAndSave("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/mars.nfp","/worlds/mars.nfp") then
+       getAndSave("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/mars.nfp","/worlds/mars.nfp") and
+	   getAndSave("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/twilight.nfp","/worlds/twilight.nfp") then
        print("Planetary and dimensional data updated successfully")
 else print("Failed to update planetary and dimensional data")
 end
