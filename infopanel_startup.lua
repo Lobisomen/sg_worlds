@@ -1,3 +1,19 @@
+-- get file via http and save it to the filename passed in
+local function getAndSave(url, filename)
+	local src = http.get(url)
+	if src == nil then
+		print("failed to get file: "..url)
+		return false
+	else
+		local file = fs.open(filename,"w")
+		file.write(src.readAll())
+		file.close()
+		src.close()
+	end
+	return true
+end
+
+
 print("Waiting 10 seconds so we don't try and wrap peripherals before they're ready")
 sleep(10)
 print()
@@ -19,14 +35,17 @@ else
 	print("Failed to update startup script")
 end
 
--- Download all planet information
-print("Updating SGInfo's Planet and Dimension data")
-if not getAndSave("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/earth.nfp","/worlds/earth.nfp") then
-	print("Failed to update SGInfos' data")
-else
-	print("SGInfo's Planet and Dimension data updated successfully")
-end
+print()
 
+-- Download all planet an dimension information
+print("Updating planetary and dimensional data")
+
+if getAndSave("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/earth.nfp","/worlds/earth.nfp") and
+       getAndSave("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/mars.nfp","/worlds/mars.nfp") then
+       print("Planetary and dimensional data updated successfully")
+else print("Failed to update planetary and dimensional data")
+end
+   
 print()
 
 -- install any updates to SGInfo
