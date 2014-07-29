@@ -27,21 +27,6 @@ else
 	print("SGInfo's Planet and Dimension data updated successfully")
 end
 
-print("Updating SGInfo Worlds and Dimensions Data")
-local start_src = http.get("https://raw.github.com/Lobisomen/sg_worlds/master/worlds/earth.nfp")
-if start_src ~= nil then
-	local file = fs.open("/startup","w")
-	file.write(start_src.readAll())
-	file.close()
-	start_src.close()
-	print("Startup script updated successfully")
-else
-	print("Failed to update startup script")
-end
-
-
-
-
 print()
 
 -- install any updates to SGInfo
