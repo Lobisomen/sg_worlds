@@ -2,7 +2,7 @@ monitor = peripheral.wrap("top")
 monitor.setTextScale(0.5)
 
 
-function Info_Tierra()
+function Info_Earth()
 term.redirect(monitor)
 monitor.clear()
 monitor.setCursorPos(10,20)
@@ -82,7 +82,7 @@ monitor.setCursorPos(30,17)
 monitor.write("Water Vapor 1%")
 monitor.setCursorPos(30,18)
 monitor.write("Traces of Argon and CO2")
-image = paintutils.loadImage("earth.nfp")
+image = paintutils.loadImage("mars.nfp")
 paintutils.drawImage(image,2,5)
 term.redirect(term.native())
 end
@@ -178,13 +178,13 @@ rednet.open("back")
 	
 	
 	
-    if msgArr[2] == "Tierra" then
+    if msgArr[2] == "Earth" then
 	  Info_Tierra()
 	end
 	if msgArr[2] == "Mars" then
 	  Info_Mars()
 	end
-    if msgArr[2] == "Twlight Forest" then
+    if msgArr[2] == "Twilight Forest" then
 	  Info_Twilight()
 	end
 	if msgArr[1] == "ping" then
